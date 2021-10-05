@@ -1,0 +1,137 @@
+https://ryanstutorials.net/bash-scripting-tutorial/bash-loops.php
+
+Predefined
+
+pwd
+cat-tac "can be piped to txt", nl
+echo
+test 001 -eq 1 ; echo $
+
+
+Pipes
+ /dev/stdin
+
+
+Datatypes
+
+list - series of strings, separated by spaces. 'Stan Kyle Cartman'
+
+range -   {1..5} 1-5 ; {10..0..2} 10,8,6..0
+
+bool - 0/1 $((1==0)) 
+
+Operators ~in C
+
+&&,||
+
+Arithmetic Operations
+
+let a=5+4 #a = 5+4 renders error
+let "hi = 3+3" 
+expr 5 + 4 #No need of string
+
+
+
+
+
+Conditional
+
+if ((1 > 1))
+then 
+   echo $((1==0))
+elif((1>1))
+then 
+   echo Elif
+else 
+    echo Greater Than
+fi
+
+
+Loops
+
+break,continue
+
+
+
+WHILE 
+
+while [ $counter -le 10 ]
+do
+echo $counter
+((counter++))
+done
+
+FOR
+
+names='Stan Kyle Cartman'
+for name in $names
+do
+echo $name
+done
+
+SELECT
+Change the value of the system variable PS3 so that the prompt is set to something a little more descriptive. (By default it is #?)
+
+names='Kyle Cartman Stan Quit'
+PS3='Select character: '
+
+select name in $names
+do
+if [ $name == 'Quit' ]
+then
+break
+fi
+echo Hello $name
+done
+
+CASE (~Switch)
+( ;; ). Following this is the next case to consider.
+esac - end of the case statement
+
+case $1 in
+start)
+echo starting
+;;
+stop)
+echo stoping
+;;
+restart)
+echo restarting
+;;
+*)
+echo don\'t know
+;;
+esac
+
+Output - A while loop until user inputs quit. A menu system
+
+Passing args to function
+
+print_something () {
+echo Hello $1
+return 5
+}
+
+print_something Mars
+
+echo $? 
+$? Remember that the variable $? contains the return status of the previously run command or function.
+
+Scope
+
+By default a variable is global.
+
+local var_name=<var_value>
+
+Overriding Commands - with command
+
+ls () {
+command ls -lh
+}
+
+In the example above, if we didn't put the keyword command in front of ls on line 5 we would end up in an endless loop. Even though we are inside the function ls when we call ls it would have called another instance of the function ls which in turn would have done the same and so on.
+
+
+
+
+
