@@ -1,0 +1,24 @@
+echo $#
+# num=1
+# let "x= $((num==0))"
+# echo $x
+# echo $((num==0))
+
+if ((1 > 1))
+then 
+  echo $((1==0))
+elif((1==1))
+then 
+  echo Elif
+else 
+    echo Greater Than
+fi
+
+
+if ((1 == 1))
+then echo $((1==0))
+else 
+    echo Less than
+fi
+
+O/p - Less Than
